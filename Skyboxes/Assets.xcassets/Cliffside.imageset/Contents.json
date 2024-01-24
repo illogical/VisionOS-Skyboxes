@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Psychedelic_Illustration_equirectangular-jpg_Waterfalls_on_a_cliffside_1398667592_9996676.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

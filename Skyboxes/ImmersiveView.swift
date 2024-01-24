@@ -12,20 +12,37 @@ import RealityKitContent
 struct ImmersiveView: View {
     var body: some View {
         RealityView { content in
-            // Add the initial RealityKit content
-            if let immersiveContentEntity = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
-                content.add(immersiveContentEntity)
-
-                // Add an ImageBasedLight for the immersive content
-                guard let resource = try? await EnvironmentResource(named: "ImageBasedLight") else { return }
-                let iblComponent = ImageBasedLightComponent(source: .single(resource), intensityExponent: 0.25)
-                immersiveContentEntity.components.set(iblComponent)
-                immersiveContentEntity.components.set(ImageBasedLightReceiverComponent(imageBasedLight: immersiveContentEntity))
-
-                // Put skybox here.  See example in World project available at
-                // https://developer.apple.com/
+            guard let skyboxEntity = createSkybox() else {
+                return
             }
+            
+            content.add(skyboxEntity)
         }
+    }
+    
+    private func createSkybox() -> Entity? {
+        // create a large sphere
+        let skyboxMesh = MeshResource.generateSphere(radius: 1000)
+        
+        // skybox image material
+        var skyboxMaterial = UnlitMaterial()
+        guard let skyboxTexture = try? TextureResource.load(named: "Garden") else
+        { return nil }
+        skyboxMaterial.color = .init(texture: .init(skyboxTexture))
+        
+        // create entity
+        let skyboxEntity = Entity()
+        skyboxEntity.components.set(
+            ModelComponent(
+                mesh: skyboxMesh,
+                materials: [skyboxMaterial]
+            )
+        )
+        
+        // flip normals
+        skyboxEntity.scale = .init(-1, 1, 1)
+        
+        return skyboxEntity
     }
 }
 

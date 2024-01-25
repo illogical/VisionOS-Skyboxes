@@ -10,6 +10,9 @@ import RealityKit
 import RealityKitContent
 
 struct ImmersiveView: View {
+    
+    @Environment(\.openWindow) var openWindow
+    
     var body: some View {
         RealityView { content in
             guard let skyboxEntity = createSkybox() else {
@@ -18,6 +21,9 @@ struct ImmersiveView: View {
             
             content.add(skyboxEntity)
         }
+        .onAppear(perform: {
+            openWindow(id: "SkyboxControls")
+        })
     }
     
     private func createSkybox() -> Entity? {

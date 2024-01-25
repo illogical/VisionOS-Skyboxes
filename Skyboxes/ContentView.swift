@@ -18,7 +18,7 @@ struct ContentView: View {
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
 
     var body: some View {
-        Text("Hello World")
+        Text("Hello World!")
     }
 }
 

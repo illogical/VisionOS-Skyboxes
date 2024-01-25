@@ -14,6 +14,7 @@
 		C95B0E5F2B60916400C29E98 /* ImageBasedLighting.skybox in Resources */ = {isa = PBXBuildFile; fileRef = C95B0E5E2B60916400C29E98 /* ImageBasedLighting.skybox */; };
 		C95B0E612B60916700C29E98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C95B0E602B60916700C29E98 /* Assets.xcassets */; };
 		C95B0E642B60916700C29E98 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C95B0E632B60916700C29E98 /* Preview Assets.xcassets */; };
+		C95B0E6C2B62102A00C29E98 /* SkyboxControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B0E6B2B62102A00C29E98 /* SkyboxControlsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C95B0E602B60916700C29E98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C95B0E632B60916700C29E98 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C95B0E652B60916700C29E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C95B0E6B2B62102A00C29E98 /* SkyboxControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyboxControlsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				C95B0E602B60916700C29E98 /* Assets.xcassets */,
 				C95B0E652B60916700C29E98 /* Info.plist */,
 				C95B0E622B60916700C29E98 /* Preview Content */,
+				C95B0E6B2B62102A00C29E98 /* SkyboxControlsView.swift */,
 			);
 			path = Skyboxes;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				C95B0E5B2B60916300C29E98 /* ContentView.swift in Sources */,
 				C95B0E592B60916300C29E98 /* SkyboxesApp.swift in Sources */,
 				C95B0E5D2B60916400C29E98 /* ImmersiveView.swift in Sources */,
+				C95B0E6C2B62102A00C29E98 /* SkyboxControlsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

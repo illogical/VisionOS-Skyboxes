@@ -12,6 +12,7 @@ import RealityKitContent
 struct ImmersiveView: View {
     
     @Environment(\.openWindow) var openWindow
+    @EnvironmentObject var skyboxSettings: SkyboxSettings
     
     var body: some View {
         RealityView { content in
@@ -20,6 +21,8 @@ struct ImmersiveView: View {
             }
             
             content.add(skyboxEntity)
+        } update: { content in
+            updateSkybox(with: skyboxSettings.currentSkybox, content: content)
         }
         .onAppear(perform: {
             openWindow(id: "SkyboxControls")
@@ -44,11 +47,35 @@ struct ImmersiveView: View {
                 materials: [skyboxMaterial]
             )
         )
+        skyboxEntity.name = "Skybox"
         
         // flip normals
         skyboxEntity.scale = .init(-1, 1, 1)
         
         return skyboxEntity
+    }
+    
+    private func updateSkybox(with newSkyboxName: String, content: RealityViewContent) {
+        let skyboxEntity = content.entities.first { entity in
+            entity.name == "Skybox"
+        }
+        
+        guard let skyboxTexture = try? TextureResource.load(named: newSkyboxName) else {
+            return
+        }
+        var skyboxMaterial = UnlitMaterial()
+        skyboxMaterial.color = .init(texture: .init(skyboxTexture))
+    
+        // create a large sphere
+        let skyboxMesh = MeshResource.generateSphere(radius: 1000)
+        
+        // update the entity
+        skyboxEntity?.components.set(
+            ModelComponent(
+                mesh: skyboxMesh,
+                materials: [skyboxMaterial]
+            )
+        )
     }
 }
 

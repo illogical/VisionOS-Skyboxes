@@ -8,22 +8,25 @@
 import SwiftUI
 
 struct SkyboxControlsView: View {
+    
+    @EnvironmentObject var skyboxSettings: SkyboxSettings
+    
     var body: some View {
         HStack {
             SkyboxButton(onClick: {
-                
+                skyboxSettings.currentSkybox = "Garden"
             }, iconName: "tree")
             SkyboxButton(onClick: {
-                
+                skyboxSettings.currentSkybox = "Library"
             }, iconName: "moon")
             SkyboxButton(onClick: {
-                
+                skyboxSettings.currentSkybox = "Dunes"
             }, iconName: "sunset")
             SkyboxButton(onClick: {
-                
+                skyboxSettings.currentSkybox = "Cliffside"
             }, iconName: "car")
             SkyboxButton(onClick: {
-                
+                skyboxSettings.currentSkybox = "Village"
             }, iconName: "building")
         }
     }
